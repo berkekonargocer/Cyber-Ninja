@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace Nojumpo.InputSystem
 {
     [CreateAssetMenu(fileName = "NewInputReader", menuName = "Nojumpo/Scriptable Objects/Game Input/New Input Reader")]
-    public class NJInputReaderSO : ScriptableObject, NJInputActions.IPlayerActions, NJInputActions.IUIActions, NJInputActions.IInspectActions
+    public class NJInputReaderSO : ScriptableObject, NJInputActions.IPlayerActions, NJInputActions.IUIActions
     {
 
 #if UNITY_EDITOR
@@ -17,8 +17,6 @@ namespace Nojumpo.InputSystem
         NJInputActions _njInputActions;
 
         public Vector2 MouseDelta { get; private set; }
-        public Vector2 InspectMouseDelta { get; private set; }
-
         public Vector2 MoveInput { get; private set; }
         
         public delegate void OnMovementInputPressed(Vector2 movementVector);
@@ -45,7 +43,6 @@ namespace Nojumpo.InputSystem
 
                 _njInputActions.Player.SetCallbacks(this);
                 _njInputActions.UI.SetCallbacks(this);
-                _njInputActions.Inspect.SetCallbacks(this);
 
                 SetPlayerInput();
             }
@@ -60,10 +57,6 @@ namespace Nojumpo.InputSystem
 
         public void OnLook(InputAction.CallbackContext context) {
             MouseDelta = context.ReadValue<Vector2>();
-        }
-        
-        public void OnInspectLook(InputAction.CallbackContext context) {
-            InspectMouseDelta = context.ReadValue<Vector2>();
         }
 
         public void OnInteractButton(InputAction.CallbackContext context) {
@@ -83,21 +76,18 @@ namespace Nojumpo.InputSystem
         }
 
         public void SetPlayerInput() {
-            _njInputActions.Inspect.Disable();
             _njInputActions.UI.Disable();
             _njInputActions.Player.Enable();
         }
 
         public void SetUIInput() {
             _njInputActions.Player.Disable();
-            _njInputActions.Inspect.Disable();
             _njInputActions.UI.Enable();
         }
 
         public void SetInspectionInput() {
             _njInputActions.Player.Disable();
             _njInputActions.UI.Disable();
-            _njInputActions.Inspect.Enable();
         }
     }
 }

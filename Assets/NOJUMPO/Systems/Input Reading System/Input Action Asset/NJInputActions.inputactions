@@ -1,5 +1,5 @@
 {
-    "name": "GameInput",
+    "name": "NJInputActions",
     "maps": [
         {
             "name": "Player",
@@ -136,54 +136,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Resume Game",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Inspect",
-            "id": "f3a4f511-5639-49da-b9a5-0141f9508fa0",
-            "actions": [
-                {
-                    "name": "InteractButton",
-                    "type": "Button",
-                    "id": "fa972db4-10ef-4b52-a775-2ebfdc903b70",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "InspectLook",
-                    "type": "Value",
-                    "id": "73cc4269-35c0-47e9-9caf-7da078123112",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "b9acc308-9840-4480-8301-7727d747944b",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "InspectLook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9dc3a7a7-55e6-4855-8b27-ce3ec7073a33",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "InteractButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
