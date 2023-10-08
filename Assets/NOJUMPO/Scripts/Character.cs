@@ -17,6 +17,7 @@ namespace Nojumpo
         float _gravity;
 
         static readonly int _movementSpeed = Animator.StringToHash("MovementSpeed");
+        static readonly int _airborne = Animator.StringToHash("Airborne");
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -55,7 +56,9 @@ namespace Nojumpo
             _movementVelocity.Normalize();
             _movementVelocity = Quaternion.Euler(0, -45.0f, 0) * _movementVelocity;
             _movementVelocity *= MovementSpeed * Time.fixedDeltaTime;
+            
             _playerAnimator.SetFloat(_movementSpeed, _movementVelocity.magnitude);
+            _playerAnimator.SetBool(_airborne, !_playerCharacterController.isGrounded);
         }
 
         void CalculateCharacterRotation() {
