@@ -48,7 +48,7 @@ namespace Nojumpo
         void SetComponents() {
             _playerCharacterController = GetComponent<CharacterController>();
             _playerAnimator = GetComponent<Animator>();
-            _gravity = Physics.gravity.y;
+            _gravity = Physics.gravity.y * 2;
         }
 
         void CalculateCharacterMovement() {
