@@ -14,31 +14,18 @@ namespace Nojumpo.AgentSystem
         protected float _verticalVelocity;
         protected float _gravity;
 
-        protected static readonly int _movementSpeed = Animator.StringToHash("MovementSpeed");
-        protected static readonly int _airborne = Animator.StringToHash("Airborne");
+        protected static readonly int _movementSpeedAnimatorHash = Animator.StringToHash("MovementSpeed");
+        protected static readonly int _airborneAnimatorHash = Animator.StringToHash("Airborne");
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
+        protected void Awake() {
             SetComponents();
         }
 
         protected virtual void FixedUpdate() {
             CalculateAgentMovement();
             CalculateAgentRotation();
-
-            if (_agentCharacterController.isGrounded == false)
-            {
-                _verticalVelocity = _gravity;
-            }
-            else
-            {
-                _verticalVelocity = _gravity * 0.3f;
-            }
-
-            _movementVelocity += Vector3.up * (_verticalVelocity * Time.fixedDeltaTime);
-
-            _agentCharacterController.Move(_movementVelocity);
         }
 
 
