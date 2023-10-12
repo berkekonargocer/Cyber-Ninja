@@ -1,35 +1,17 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Nojumpo
 {
     public class EnemyVFXManager : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
-        void Update() {
-        }
+        [SerializeField] VisualEffect footstepVFX;
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        public void Footstep() {
+            footstepVFX.SendEvent("OnPlay");
+        }
     }
 }
